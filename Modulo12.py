@@ -15,8 +15,14 @@ class Modulo12(object):
 
   def __add__(self, other):
     """Overridden sum operation (+) between instances."""
-    return Modulo12(self._remainder + other._remainder)
+    if isinstance(other, self.__class__):
+      return self.__class__(self._remainder + other._remainder)
+    else:
+      return self.__class__(self._remainder + other)
 
   def __mul__(self, other):
     """Overridden product operation (*) between instances."""
-    return Modulo12(self._remainder * other._remainder)
+    if isinstance(other, self.__class__):
+      return self.__class__(self._remainder * other._remainder)
+    else:
+      return self.__class__(self._remainder * other)
