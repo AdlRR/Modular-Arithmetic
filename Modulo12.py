@@ -20,6 +20,10 @@ class Modulo12(object):
     else:
       return self.__class__(self._remainder + other)
 
+  def __radd__(self, other):
+    """Overridden reflected sum operation (+) between instances."""
+    return self.__add__(other)
+
   def __mul__(self, other):
     """Overridden product operation (*) between instances."""
     if isinstance(other, self.__class__):

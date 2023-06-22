@@ -18,6 +18,8 @@ def main():
   ymod = Modulo12(y)
   print(f"{xf} + {yf} = {xmod.getRemainder()} + {ymod.getRemainder()} =",
         xmod + ymod)
+  print("xmod + y =", xmod + y)
+  print("x + ymod =", x + ymod)
   print(f"{xf} * {yf} = {xmod.getRemainder()} * {ymod.getRemainder()} =",
         xmod * ymod)
 
