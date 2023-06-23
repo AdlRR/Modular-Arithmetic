@@ -24,9 +24,20 @@ class Modulo12(object):
     """Overridden reflected sum operation (+) between instances."""
     return self.__add__(other)
 
+  def __sub__(self, other):
+    """Overridden difference operation (-) between instances."""
+    if isinstance(other, self.__class__):
+      return self.__class__(self._remainder - other._remainder)
+    else:
+      return self.__class__(self._remainder - other)
+
   def __neg__(self):
     """Overriden minus or negative or opposite operation (unary - sign)"""
     return self.__class__(-self._remainder)
+
+  def __rsub__(self, other):
+    """Overridden reflected difference operation (-) between instances."""
+    return self.__neg__().__add__(other)
 
   def __mul__(self, other):
     """Overridden product operation (*) between instances."""
