@@ -45,3 +45,10 @@ class Modulo12(object):
       return self.__class__(self._remainder * other._remainder)
     else:
       return self.__class__(self._remainder * other)
+
+  def __pow__(self, other):
+    """Overridden power operation (**) between a Modulo12 instance and an integer."""
+    if other < 0:
+      raise NotImplementedError("Power not implemented for negative exponents")
+    else:
+      return self.__class__(self._remainder ** other)
