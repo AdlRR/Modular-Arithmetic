@@ -20,6 +20,8 @@ def main():
         xmod + ymod)
   print("xmod + y =", xmod + y)
   print("x + ymod =", x + ymod)
+  print("+xmod =", +xmod)
+  print("+ymod =", +ymod)
   print("-xmod =", -xmod)
   print("-ymod =", -ymod)
   print("xmod - ymod =", xmod - ymod)

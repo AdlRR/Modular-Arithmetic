@@ -31,6 +31,10 @@ class Modulo12(object):
     else:
       return self.__class__(self._remainder - other)
 
+  def __pos__(self):
+    """Overriden plus or positive operation (unary + sign)"""
+    return self
+    
   def __neg__(self):
     """Overriden minus or negative or opposite operation (unary - sign)"""
     return self.__class__(-self._remainder)
