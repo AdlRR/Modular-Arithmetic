@@ -30,9 +30,9 @@ def main():
   print(f"{xf} * {yf} = {xmod.getRemainder()} * {ymod.getRemainder()} =",
         xmod * ymod)
   try:
-    print("xmod ** y =", xmod ** y)
-  except NotImplementedError:
-    print("Power not implemented for negative exponents.")
+    print("xmod ** y =", xmod**y)
+  except NotImplementedError as error:
+    print(error)
 
 
 if __name__ == '__main__':
