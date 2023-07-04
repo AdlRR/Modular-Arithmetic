@@ -37,6 +37,9 @@ def main():
     print(xmod ** -abs(y))
   except NotImplementedError as error:
     print(error)
+  # Absolute value:
+  print("abs(xmod) =", abs(xmod))
+  print("abs(-xmod) =", abs(-xmod))
 
 
 if __name__ == '__main__':

@@ -56,3 +56,11 @@ class Modulo12(object):
       raise NotImplementedError("Power not implemented for negative exponents")
     else:
       return self.__class__(self._remainder ** other)
+
+  def __abs__(self):
+    """Overridden absolute value function (abs)."""
+    six = 6
+    if self._remainder <= six:
+      return self
+    if self._remainder > six:
+      return self.__class__(-self._remainder)
