@@ -16,7 +16,7 @@ def main():
   yf = withParentheses(y)
   xmod = Modulo12(x)
   ymod = Modulo12(y)
-  print(f"{xf} + {yf} = {xmod.getrepresentative()} + {ymod.getrepresentative()} =",
+  print(f"{xf} + {yf} = {xmod.representative} + {ymod.representative} =",
         xmod + ymod)
   print("xmod + y =", xmod + y)
   print("x + ymod =", x + ymod)
@@ -27,7 +27,7 @@ def main():
   print("xmod - ymod =", xmod - ymod)
   print("xmod - y =", xmod - y)
   print("x - ymod =", x - ymod)
-  print(f"{xf} * {yf} = {xmod.getrepresentative()} * {ymod.getrepresentative()} =",
+  print(f"{xf} * {yf} = {xmod.representative} * {ymod.representative} =",
         xmod * ymod)
   # Power with positive exponent:
   print("xmod ** abs(y) =", xmod ** abs(y))

@@ -7,7 +7,8 @@ class Modulo12(object):
     """Initializer. Without arguments it instantiates a 0."""
     self._representative = n % self._twelve
 
-  def getrepresentative(self):
+  @property
+  def representative(self):
     """Get representative or remainder attribute."""
     return self._representative
 
