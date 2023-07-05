@@ -3,8 +3,8 @@ class Modulo12(object):
 
   _twelve = 12
 
-  def __init__(self, n=0):
-    """Initializer. Without arguments it instatiates a 0."""
+  def __init__(self, n = 0):
+    """Initializer. Without arguments it instantiates a 0."""
     self._representative = n % self._twelve
 
   def getrepresentative(self):
