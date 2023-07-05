@@ -5,22 +5,22 @@ class Modulo12(object):
 
   def __init__(self, n=0):
     """Initializer. Without arguments it instatiates a 0."""
-    self._remainder = n % self._twelve
+    self._representative = n % self._twelve
 
-  def getRemainder(self):
-    """Get remainder attribute."""
-    return self._remainder
+  def getrepresentative(self):
+    """Get representative or remainder attribute."""
+    return self._representative
 
   def __repr__(self):
     """Printable String representation, called by function `repr()`, as well as `str()` and `print()`."""
-    return str(self._remainder) + f' mod {self._twelve}'
+    return str(self._representative) + f' mod {self._twelve}'
 
   def __add__(self, other):
     """Overridden sum operation (+) between instances."""
     if isinstance(other, self.__class__):
-      return self.__class__(self._remainder + other._remainder)
+      return self.__class__(self._representative + other._representative)
     else:
-      return self.__class__(self._remainder + other)
+      return self.__class__(self._representative + other)
 
   def __radd__(self, other):
     """Overridden reflected sum operation (+) between instances."""
@@ -29,9 +29,9 @@ class Modulo12(object):
   def __sub__(self, other):
     """Overridden difference operation (-) between instances."""
     if isinstance(other, self.__class__):
-      return self.__class__(self._remainder - other._remainder)
+      return self.__class__(self._representative - other._representative)
     else:
-      return self.__class__(self._remainder - other)
+      return self.__class__(self._representative - other)
 
   def __pos__(self):
     """Overriden plus or positive operation (unary + sign)"""
@@ -39,7 +39,7 @@ class Modulo12(object):
     
   def __neg__(self):
     """Overriden minus or negative or opposite operation (unary - sign)"""
-    return self.__class__(-self._remainder)
+    return self.__class__(-self._representative)
 
   def __rsub__(self, other):
     """Overridden reflected difference operation (-) between instances."""
@@ -48,21 +48,21 @@ class Modulo12(object):
   def __mul__(self, other):
     """Overridden product operation (*) between instances."""
     if isinstance(other, self.__class__):
-      return self.__class__(self._remainder * other._remainder)
+      return self.__class__(self._representative * other._representative)
     else:
-      return self.__class__(self._remainder * other)
+      return self.__class__(self._representative * other)
 
   def __pow__(self, other):
     """Overridden power operation (**) between a Modulo12 instance and an integer."""
     if other < 0:
       raise NotImplementedError("Power not implemented for negative exponents")
     else:
-      return self.__class__(self._remainder ** other)
+      return self.__class__(self._representative ** other)
 
   def __abs__(self):
     """Overridden absolute value function (abs)."""
     six = 6
-    if self._remainder <= six:
+    if self._representative <= six:
       return self
-    if self._remainder > six:
-      return self.__class__(-self._remainder)
+    if self._representative > six:
+      return self.__class__(-self._representative)
