@@ -9,8 +9,8 @@ class Modulo12(object):
     """Get remainder attribute."""
     return self._remainder
 
-  def __str__(self):
-    """Printable String representation."""
+  def __repr__(self):
+    """Printable String representation, called by function `repr()`, as well as `str()` and `print()`."""
     return str(self._remainder) + ' mod 12'
 
   def __add__(self, other):
