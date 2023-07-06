@@ -27,8 +27,11 @@ def main():
   print("xmod - ymod =", xmod - ymod)
   print("xmod - y =", xmod - y)
   print("x - ymod =", x - ymod)
-  print(f"{xf} * {yf} = {xmod.representative} * {ymod.representative} =",
-        xmod * ymod)
+  # Product between instances:
+  print("xmod * ymod =", xmod * ymod)
+  # Product between instance and integer:
+  print("xmod * y =", xmod * y)
+  print("x * ymod =", x * ymod)
   # Power with positive exponent:
   print("xmod ** abs(y) =", xmod ** abs(y))
   # Power with negative exponent:

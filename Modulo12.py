@@ -1,3 +1,5 @@
+import math
+
 class Modulo12(object):
   """A class to work with integers modulo 12."""
 
@@ -45,11 +47,21 @@ class Modulo12(object):
     return self.__neg__().__add__(other)
 
   def __mul__(self, other):
-    """Overridden product operation (*) between instances."""
+    """Overridden product operation (*) between instances, or between an instance and an integer."""
     if isinstance(other, self.__class__):
-      return self.__class__(self._representative * other._representative)
-    else:
+      product_of_representatives = self._representative * other._representative
+      if isinstance(product_of_representatives, int):
+        return self.__class__(product_of_representatives)
+      else:
+        return self.__class__(math.nan)
+    elif isinstance(other, int):
       return self.__class__(self._representative * other)
+    else:
+      return self.__class__(math.nan)
+
+  def __rmul__(self, other):
+    """Overridden reflected product operation (*) between an integer and an instance."""
+    return self.__mul__(other)
 
   def __pow__(self, other):
     """Overridden power operation (**) between a Modulo12 instance and an integer."""
