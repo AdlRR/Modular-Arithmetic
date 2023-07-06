@@ -1,11 +1,9 @@
 class Modulo12(object):
   """A class to work with integers modulo 12."""
 
-  _twelve = 12
-
   def __init__(self, n = 0):
     """Initializer. Without arguments it instantiates a 0."""
-    self._representative = n % self._twelve
+    self._representative = n % 12
 
   @property
   def representative(self):
@@ -14,7 +12,7 @@ class Modulo12(object):
 
   def __repr__(self):
     """Printable String representation, called by function `repr()`, as well as `str()` and `print()`."""
-    return str(self._representative) + f' mod {self._twelve}'
+    return str(self._representative) + ' mod 12'
 
   def __add__(self, other):
     """Overridden sum operation (+) between instances."""
