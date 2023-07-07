@@ -63,6 +63,15 @@ class Modulo12(object):
     """Overridden reflected product operation (*) between an integer and an instance."""
     return self.__mul__(other)
 
+  def is_invertible(self):
+    if isinstance(self._representative, int):
+      if (self._representative % 2 == 0) or (self._representative % 3 == 0):
+        return False
+      else:
+        return True
+    else:
+      return False
+
   def __pow__(self, other):
     """Overridden power operation (**) between a Modulo12 instance and an integer."""
     if other < 0:

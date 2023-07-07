@@ -32,6 +32,9 @@ def main():
   # Product between instance and integer:
   print("xmod * y =", xmod * y)
   print("x * ymod =", x * ymod)
+  # Invertible elements:
+  print("Is xmod invertible?", xmod.is_invertible())
+  print("Is ymod invertible?", ymod.is_invertible())
   # Power with positive exponent:
   print("xmod ** abs(y) =", xmod ** abs(y))
   # Power with negative exponent:
