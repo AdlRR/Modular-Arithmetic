@@ -72,6 +72,13 @@ class Modulo12(object):
     else:
       return False
 
+  def inverse(self):
+    if self.is_invertible():
+      # As a consequence of Euler's Theorem, the inverse is the class to the power of phi(12)-1, where phi is the Euler totient function. In this case, phi(12)=4.
+      return self.__class__(self._representative ** 3)
+    else:
+      return self.__class__(math.nan)
+
   def __pow__(self, other):
     """Overridden power operation (**) between a Modulo12 instance and an integer."""
     if other < 0:

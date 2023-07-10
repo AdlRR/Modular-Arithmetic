@@ -34,7 +34,9 @@ def main():
   print("x * ymod =", x * ymod)
   # Invertible elements:
   print("Is xmod invertible?", xmod.is_invertible())
+  print("inverse of xmod:", xmod.inverse())
   print("Is ymod invertible?", ymod.is_invertible())
+  print("inverse of ymod:", ymod.inverse())
   # Power with positive exponent:
   print("xmod ** abs(y) =", xmod ** abs(y))
   # Power with negative exponent:
