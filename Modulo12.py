@@ -81,10 +81,28 @@ class Modulo12(object):
 
   def __pow__(self, other):
     """Overridden power operation (**) between a Modulo12 instance and an integer."""
-    if other < 0:
-      raise NotImplementedError("Power not implemented for negative exponents")
+    def power_modulo_12(base, exponent):
+      result = 1
+      for i in range(exponent):
+        result = result * base % 12
+      return result
+
+    n = 0
+    
+    if isinstance(other, int):
+      n = other
+    elif isinstance(other, float):
+      if other.is_integer():
+        n = int(other)
+      else:
+        return self.__class__(math.nan)
     else:
-      return self.__class__(self._representative ** other)
+      raise NotImplementedError()
+
+    if n >= 0:
+      return self.__class__(power_modulo_12(self._representative, n))
+    else:
+      return self.__class__(power_modulo_12(self.inverse()._representative, -n))
 
   def __abs__(self):
     """Overridden absolute value function (abs)."""

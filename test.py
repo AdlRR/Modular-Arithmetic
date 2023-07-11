@@ -37,14 +37,8 @@ def main():
   print("inverse of xmod:", xmod.inverse())
   print("Is ymod invertible?", ymod.is_invertible())
   print("inverse of ymod:", ymod.inverse())
-  # Power with positive exponent:
-  print("xmod ** abs(y) =", xmod ** abs(y))
-  # Power with negative exponent:
-  try:
-    print("xmod ** -abs(y) =", end=' ')
-    print(xmod ** -abs(y))
-  except NotImplementedError as error:
-    print(error)
+  # Power:
+  print("xmod ** y =", xmod ** y)
   # Absolute value:
   print("abs(xmod) =", abs(xmod))
   print("abs(-xmod) =", abs(-xmod))
