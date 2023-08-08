@@ -50,6 +50,8 @@ def main():
   print("Multiple values of ymod divided by xmod:", xmod.multivalued_division_of(ymod))
   # Floor division:
   print("xmod // ymod =", xmod // ymod)
+  # Modulo:
+  print("xmod % ymod =", xmod % ymod)
   # Power:
   print("xmod ** y =", xmod ** y)
   # Absolute value:
