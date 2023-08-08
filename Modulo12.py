@@ -1,9 +1,10 @@
 import math
 
+
 class Modulo12(object):
   """A class to work with integers modulo 12."""
 
-  def __init__(self, n = 0):
+  def __init__(self, n=0):
     """Initializer. Without arguments it instantiates a 0."""
     self._representative = n % 12
 
@@ -41,7 +42,7 @@ class Modulo12(object):
   def __pos__(self):
     """Overriden plus or positive operation (unary + sign)"""
     return self
-    
+
   def __neg__(self):
     """Overriden minus or negative or opposite operation (unary - sign)"""
     return self.__class__(-self._representative)
@@ -79,10 +80,10 @@ class Modulo12(object):
   def inverse(self):
     if self.is_invertible():
       # As a consequence of Euler's Theorem, the inverse is the class to the power of phi(12)-1, where phi is the Euler totient function. In this case, phi(12)=4.
-      return self.__class__(self._representative ** 3)
+      return self.__class__(self._representative**3)
     else:
-      return self.__class__(math.nan)	
-	
+      return self.__class__(math.nan)
+
   def __truediv__(self, other):
     """Overridden true division operation (/)."""
     return self.__mul__(other.inverse())
@@ -90,7 +91,7 @@ class Modulo12(object):
   def __rtruediv__(self, other):
     """Overridden reflected true division operation (/)."""
     return self.inverse().__mul__(other)
-  
+
   def divides(self, other):
     if other._representative % math.gcd(self._representative, 12) == 0:
       return True
@@ -112,7 +113,7 @@ class Modulo12(object):
   def multivalued_division_of(self, other):
     """Returns a list with all solutions to the equation self * x = other with unknown x"""
     return other.multivalued_division_by(self)
-  
+
   def __floordiv__(self, other):
     """
     Overridden floor division operation (//).
@@ -139,7 +140,7 @@ class Modulo12(object):
   def __rmod__(self, other):
     """Overridden reflected modulo operation (%)."""
     return self.__class__(other).__mod__(self)
-  
+
   def __divmod__(self, other):
     """
     Overridden floor division and modulus operation (`divmod()`).
@@ -148,7 +149,8 @@ class Modulo12(object):
     """
     gcd = math.gcd(other._representative, 12)
     floor = (self._representative // gcd) * gcd
-    return (self.__class__(floor).multivalued_division_by(other), self.__class__(self._representative % gcd))
+    return (self.__class__(floor).multivalued_division_by(other),
+            self.__class__(self._representative % gcd))
 
   def __rdivmod__(self, other):
     """Overridden reflected floor division and modulus operation (`divmod()`)."""
@@ -156,6 +158,7 @@ class Modulo12(object):
 
   def __pow__(self, other):
     """Overridden power operation (**) between a Modulo12 instance and an integer."""
+
     def power_modulo_12(base, exponent):
       result = 1
       for i in range(exponent):
@@ -163,7 +166,7 @@ class Modulo12(object):
       return result
 
     n = 0
-    
+
     if isinstance(other, int):
       n = other
     elif isinstance(other, float):
@@ -177,7 +180,8 @@ class Modulo12(object):
     if n >= 0:
       return self.__class__(power_modulo_12(self._representative, n))
     else:
-      return self.__class__(power_modulo_12(self.inverse()._representative, -n))
+      return self.__class__(power_modulo_12(self.inverse()._representative,
+                                            -n))
 
   def __abs__(self):
     """Overridden absolute value function (abs)."""
