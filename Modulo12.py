@@ -110,6 +110,7 @@ class Modulo12(object):
     return result_list
 
   def multivalued_division_of(self, other):
+    """Returns a list with all solutions to the equation self * x = other with unknown x"""
     return other.multivalued_division_by(self)
 
   def __pow__(self, other):
