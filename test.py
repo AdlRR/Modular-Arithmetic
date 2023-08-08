@@ -37,6 +37,10 @@ def main():
   print("inverse of xmod:", xmod.inverse())
   print("Is ymod invertible?", ymod.is_invertible())
   print("inverse of ymod:", ymod.inverse())
+  # True division:
+  print("xmod / ymod =", xmod / ymod)
+  print("xmod / y =", xmod / ymod)
+  print("x / ymod =", xmod / ymod)
   # Power:
   print("xmod ** y =", xmod ** y)
   # Absolute value:
