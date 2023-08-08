@@ -45,6 +45,9 @@ def main():
   print("Does xmod divide ymod?", xmod.divides(ymod))
   # Is divided by:
   print("Does ymod divide xmod?", xmod.is_divided_by(ymod))
+  # Multi-valued division:
+  print("Multiple values of xmod divided by ymod:", xmod.multivalued_division_by(ymod))
+  print("Multiple values of ymod divided by xmod:", xmod.multivalued_division_of(ymod))
   # Power:
   print("xmod ** y =", xmod ** y)
   # Absolute value:

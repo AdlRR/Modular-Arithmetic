@@ -96,6 +96,18 @@ class Modulo12(object):
   def is_divided_by(self, other):
     return other.divides(self)
 
+  def multivalued_division_by(self, other):
+    """Returns a list with all solutions to the equation other * x = self with unknown x"""
+    result_list = []
+    # Since there are few elements, we will simply find all divisors by brute force or exhaustive search:
+    for i in range(12):
+      if other * i == self:
+        result_list.append(self.__class__(i))
+    return result_list
+
+  def multivalued_division_of(self, other):
+    return other.multivalued_division_by(self)
+
   def __pow__(self, other):
     """Overridden power operation (**) between a Modulo12 instance and an integer."""
     def power_modulo_12(base, exponent):
