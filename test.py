@@ -43,6 +43,8 @@ def main():
   print("x / ymod =", xmod / ymod)
   # Divides:
   print("Does xmod divide ymod?", xmod.divides(ymod))
+  # Is divided by:
+  print("Does ymod divide xmod?", xmod.is_divided_by(ymod))
   # Power:
   print("xmod ** y =", xmod ** y)
   # Absolute value:

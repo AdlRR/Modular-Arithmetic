@@ -93,6 +93,9 @@ class Modulo12(object):
     else:
       return False
 
+  def is_divided_by(self, other):
+    return other.divides(self)
+
   def __pow__(self, other):
     """Overridden power operation (**) between a Modulo12 instance and an integer."""
     def power_modulo_12(base, exponent):
