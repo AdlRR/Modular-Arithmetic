@@ -86,6 +86,12 @@ class Modulo12(object):
   def __rtruediv__(self, other):
     """Overridden reflected true division operation (/)."""
     return self.inverse().__mul__(other)
+  
+  def divides(self, other):
+    if other._representative % math.gcd(self._representative, 12) == 0:
+      return True
+    else:
+      return False
 
   def __pow__(self, other):
     """Overridden power operation (**) between a Modulo12 instance and an integer."""
