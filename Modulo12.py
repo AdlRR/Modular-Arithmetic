@@ -16,6 +16,10 @@ class Modulo12(object):
     """Printable String representation, called by function `repr()`, as well as `str()` and `print()`."""
     return str(self._representative) + ' mod 12'
 
+  def __eq__(self, other):
+    """Overridden equality operation (==) between instances."""
+    return self._representative == other._representative
+
   def __add__(self, other):
     """Overridden sum operation (+) between instances."""
     if isinstance(other, self.__class__):
