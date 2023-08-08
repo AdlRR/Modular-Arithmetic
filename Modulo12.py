@@ -139,6 +139,20 @@ class Modulo12(object):
   def __rmod__(self, other):
     """Overridden reflected modulo operation (%)."""
     return self.__class__(other).__mod__(self)
+  
+  def __divmod__(self, other):
+    """
+    Overridden floor division and modulus operation (`divmod()`).
+
+    We define the result of the floor division as q in `self = q * other + r`, where q is the quotient and r the remainder. We choose r so that it has the smallest representative, taking as representatives the positive integers ordered from 0 to 11. This decision is arbitrary, since the integers modulo 12 are cyclically ordered, and do not respect the lineal order of the integers.
+    """
+    gcd = math.gcd(other._representative, 12)
+    floor = (self._representative // gcd) * gcd
+    return (self.__class__(floor).multivalued_division_by(other), self.__class__(self._representative % gcd))
+
+  def __rdivmod__(self, other):
+    """Overridden reflected floor division and modulus operation (`divmod()`)."""
+    return self.__class__(other).__divmod__(self)
 
   def __pow__(self, other):
     """Overridden power operation (**) between a Modulo12 instance and an integer."""

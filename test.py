@@ -46,14 +46,18 @@ def main():
   # Is divided by:
   print("Does ymod divide xmod?", xmod.is_divided_by(ymod))
   # Multi-valued division:
-  print("Multiple values of xmod divided by ymod:", xmod.multivalued_division_by(ymod))
-  print("Multiple values of ymod divided by xmod:", xmod.multivalued_division_of(ymod))
+  print("Multiple values of xmod divided by ymod:",
+        xmod.multivalued_division_by(ymod))
+  print("Multiple values of ymod divided by xmod:",
+        xmod.multivalued_division_of(ymod))
   # Floor division:
   print("xmod // ymod =", xmod // ymod)
   # Modulo:
   print("xmod % ymod =", xmod % ymod)
+  # Combined floor division and modulo operation:
+  print("divmod(xmod, ymod) =", divmod(xmod, ymod))
   # Power:
-  print("xmod ** y =", xmod ** y)
+  print("xmod ** y =", xmod**y)
   # Absolute value:
   print("abs(xmod) =", abs(xmod))
   print("abs(-xmod) =", abs(-xmod))
